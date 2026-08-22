@@ -1,0 +1,120 @@
+{
+  "source": "Supabase CSV export",
+  "base_ui_key": "gashaponfun-v9",
+  "base_ui_md5": "c68e6aa7636241bef834fbea683db49a",
+  "base_ui_updated_at": "2026-08-17 02:32:47.537788+00",
+  "assets": [
+    {
+      "asset_key": "app-ui.css",
+      "type": "css",
+      "sort_order": 10,
+      "enabled": true,
+      "updated_at": "2026-08-17 13:36:53.734909+00",
+      "file": "010-app-ui.css"
+    },
+    {
+      "asset_key": "machine-coin-ui.js",
+      "type": "js",
+      "sort_order": 20,
+      "enabled": true,
+      "updated_at": "2026-08-17 13:36:53.734909+00",
+      "file": "020-machine-coin-ui.js"
+    },
+    {
+      "asset_key": "create-account.js",
+      "type": "js",
+      "sort_order": 30,
+      "enabled": true,
+      "updated_at": "2026-08-17 13:36:53.734909+00",
+      "file": "030-create-account.js"
+    },
+    {
+      "asset_key": "player-accounts.js",
+      "type": "js",
+      "sort_order": 40,
+      "enabled": true,
+      "updated_at": "2026-08-17 13:36:53.734909+00",
+      "file": "040-player-accounts.js"
+    },
+    {
+      "asset_key": "inventory-manager.js",
+      "type": "js",
+      "sort_order": 50,
+      "enabled": true,
+      "updated_at": "2026-08-17 15:54:26.630154+00",
+      "file": "050-inventory-manager.js"
+    },
+    {
+      "asset_key": "capsule-chamber-v31.js",
+      "type": "js",
+      "sort_order": 55,
+      "enabled": true,
+      "updated_at": "2026-08-17 17:39:24.383783+00",
+      "file": "055-capsule-chamber-v31.js"
+    },
+    {
+      "asset_key": "capsule-motion-v31b.js",
+      "type": "js",
+      "sort_order": 56,
+      "enabled": false,
+      "updated_at": "2026-08-17 17:36:52.206919+00",
+      "file": "DISABLED-056-capsule-motion-v31b.js"
+    },
+    {
+      "asset_key": "capsule-motion-v31c.js",
+      "type": "js",
+      "sort_order": 56,
+      "enabled": false,
+      "updated_at": "2026-08-17 17:36:52.206919+00",
+      "file": "DISABLED-056-capsule-motion-v31c.js"
+    },
+    {
+      "asset_key": "capsule-video-overlay-v31d.js",
+      "type": "js",
+      "sort_order": 56,
+      "enabled": false,
+      "updated_at": "2026-08-17 17:41:47.126668+00",
+      "file": "DISABLED-056-capsule-video-overlay-v31d.js"
+    },
+    {
+      "asset_key": "capsule-knob-delay-v31e.js",
+      "type": "js",
+      "sort_order": 58,
+      "enabled": false,
+      "updated_at": "2026-08-17 17:41:47.126668+00",
+      "file": "DISABLED-058-capsule-knob-delay-v31e.js"
+    },
+    {
+      "asset_key": "category-popup.js",
+      "type": "js",
+      "sort_order": 60,
+      "enabled": true,
+      "updated_at": "2026-08-17 14:59:10.863346+00",
+      "file": "060-category-popup.js"
+    },
+    {
+      "asset_key": "my-prizes.js",
+      "type": "js",
+      "sort_order": 65,
+      "enabled": true,
+      "updated_at": "2026-08-17 15:57:54.585317+00",
+      "file": "065-my-prizes.js"
+    },
+    {
+      "asset_key": "prize-pool.js",
+      "type": "js",
+      "sort_order": 70,
+      "enabled": true,
+      "updated_at": "2026-08-17 14:14:55.676765+00",
+      "file": "070-prize-pool.js"
+    },
+    {
+      "asset_key": "staff-controls.js",
+      "type": "js",
+      "sort_order": 80,
+      "enabled": true,
+      "updated_at": "2026-08-17 14:45:51.456284+00",
+      "file": "080-staff-controls.js"
+    }
+  ]
+}

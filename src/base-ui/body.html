@@ -1,0 +1,259 @@
+
+  <div class="world" aria-hidden="true">
+    <div class="aurora aurora-a"></div><div class="aurora aurora-b"></div>
+    <div class="grid-floor"></div><div class="scanline"></div>
+    <div class="star star-a"></div><div class="star star-b"></div><div class="star star-c"></div>
+  </div>
+
+  <main class="wrap">
+    <header class="top hud-panel">
+      <div class="brand-block">
+        <div class="eyebrow"><span class="pulse-dot"></span> GASHAPONFUN SYSTEM // ONLINE</div>
+        <h1><span>GASHAPON</span>FUN</h1>
+        <div class="muted sysline">Cloud sync <span class="slash">//</span> <span id="live">signed out</span></div>
+      </div>
+      <div class="top-actions">
+        <div class="coin energy-chip"><span class="coin-icon">◆</span><span class="coin-number" id="coins">—</span><span class="coin-label">COINS</span></div>
+        <span id="roleBadge" class="role-badge hidden"></span>
+        <button id="openLogin" class="btn secondary compact hidden">SIGN IN</button>
+        <button id="headerLogout" class="btn secondary compact hidden">LOG OUT</button>
+      </div>
+    </header>
+
+    <section id="accessNotice" class="card notice hidden">
+      <div class="panel-tag">ACCESS // PENDING</div>
+      <h2 id="accessNoticeTitle">Account awaiting approval</h2>
+      <p id="accessNoticeText">Your email is verified, but this account has not been approved for GashaponFun access.</p>
+      <button id="noticeLogout" class="btn secondary">SIGN OUT</button>
+    </section>
+
+    <div id="appContent" class="hidden">
+      <section id="homeView" class="app-view home-view">
+        <div class="home-hero hud-panel">
+          <div>
+            <div class="panel-tag">GASHAPON SELECT // READY</div>
+            <h2>Choose your machine</h2>
+            <p class="muted">Tap a banner to enter that Gashapon.</p>
+          </div>
+          <div class="home-actions">
+            <button id="adminBtn" class="btn secondary hidden">⚙ ADMIN</button>
+            <button id="playerAccountBtn" class="btn secondary hidden">👤 PLAYER ACCOUNT</button>
+            <button id="accountBtn" class="btn secondary">◎ ACCOUNT</button>
+            <button id="newMachineTop" class="machine-add hidden" type="button" aria-label="Create new gashapon">＋</button>
+          </div>
+        </div>
+        <div id="machineGallery" class="machine-gallery" aria-label="Available gashapon machines"></div>
+      </section>
+
+      <section id="playView" class="app-view play-view hidden">
+        <nav class="play-nav hud-panel">
+          <button id="backToMachines" class="btn secondary compact">← MACHINES</button>
+          <div class="play-nav-title">
+            <span class="panel-tag">NOW PLAYING</span>
+            <strong id="playMachineName">Gashapon</strong>
+          </div>
+          <button id="playAdminBtn" class="btn secondary compact hidden">⚙ ADMIN</button>
+        </nav>
+
+        <section class="play-banner-card">
+          <img id="playPoster" class="play-banner-image hidden" alt="Gashapon poster">
+          <div id="playPosterEmpty" class="play-banner-empty"><span>✦</span><strong>GASHAPONFUN</strong></div>
+          <div class="play-banner-shade"></div>
+          <div class="play-banner-copy">
+            <div class="panel-tag">SELECTED MACHINE</div>
+            <h2 id="machineTitle">Gashapon</h2>
+            <div id="machineAvailability" class="muted">Select a machine.</div>
+          </div>
+        </section>
+
+        <div class="play-layout">
+          <section class="machine-stage-card">
+            <div class="machine-stage-head">
+              <div><div class="panel-tag">PHYSICAL MODE // CAPSULE DISPENSER</div><h2>Play Gashapon</h2></div>
+              <div id="loadedCoinChip" class="loaded-coin-chip hidden">◆ 1 COIN LOADED</div>
+            </div>
+
+            <div id="gashaponMachine" class="real-machine anime-machine phase-idle" aria-label="Interactive GashaponFun machine">
+              <div class="machine-top-cap">
+                <span class="machine-brand-mark">✦</span><span>GASHAPON</span><b>FUN</b><span class="machine-brand-mark">✦</span>
+              </div>
+              <div class="capsule-chamber">
+                <div class="chamber-stars" aria-hidden="true"></div>
+                <div id="capsuleDisplay" class="capsule-display" aria-label="Prizes currently inside this machine"></div>
+                <div class="chamber-glass"></div>
+                <div class="capsule-ramp"></div>
+              </div>
+              <div class="machine-lower">
+                <div class="machine-trace trace-a" aria-hidden="true"></div>
+                <div class="machine-trace trace-b" aria-hidden="true"></div>
+                <button id="coinSlot" class="coin-slot-control" type="button" aria-label="Insert one coin">
+                  <span class="coin-slot-label">✦ COIN ✦</span><span class="coin-slot-hole"></span><small>TAP TO INSERT</small>
+                </button>
+                <div class="coin-cost-plate" aria-label="Machine coin cost"><strong id="machineCostValue">1 COIN</strong><span>PER PLAY</span></div>
+                <div class="knob-zone">
+                  <div class="knob-direction"><span>↻</span> TURN CLOCKWISE <span>↻</span></div>
+                  <div id="knob" class="machine-knob" role="slider" aria-label="Turn gashapon knob clockwise" aria-valuemin="0" aria-valuemax="720" aria-valuenow="0" tabindex="0">
+                    <span class="knob-pointer" aria-hidden="true"></span>
+                    <div class="knob-face"><span></span></div>
+                  </div>
+                  <div class="turn-meter" aria-label="Knob turn progress"><span id="turnMeterFill"></span></div>
+                </div>
+                <button id="capsuleChute" class="capsule-chute" type="button" disabled aria-label="Capsule output chute">
+                  <span class="chute-label">✦ CAPSULE OUT</span>
+                  <span id="dispensedCapsule" class="dispensed-capsule hidden"><img id="dispensedCapsuleImage" class="hidden" alt=""></span>
+                  <span id="emptyChute" class="empty-chute">READY</span>
+                </button>
+                <div class="machine-decal" aria-hidden="true"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <div class="machine-flow-guide" aria-label="How to play">
+              <div id="flowCoin" class="flow-step active"><span class="flow-num">1</span><span class="flow-icon flow-coin-icon"></span><b>Tap<br>coin slot</b></div>
+              <span class="flow-arrow">→</span>
+              <div id="flowTurn" class="flow-step"><span class="flow-num">2</span><span class="flow-icon flow-turn-icon">↻</span><b>Turn<br>clockwise</b></div>
+              <span class="flow-arrow">→</span>
+              <div id="flowOpen" class="flow-step"><span class="flow-num">3</span><span class="flow-icon flow-capsule-icon"></span><b>Tap<br>capsule</b></div>
+            </div>
+            <div id="status" class="status machine-status">Tap the coin slot to begin.</div>
+            <button id="roll" class="hidden" disabled aria-hidden="true"></button>
+          </section>
+
+          <aside class="play-side-card">
+            <div class="panel-heading"><div><div class="panel-tag">CURRENT MACHINE</div><h2>Prize pool</h2></div><span class="mini-chip">EQUAL ODDS</span></div>
+            <div id="prizes" class="prizes"></div>
+            <div class="divider-line"></div>
+            <div class="panel-heading section-gap"><div><div class="panel-tag">RECENT DROPS</div><h3>Recent wins</h3></div></div>
+            <div id="wins" class="wins muted">No wins yet.</div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="consoleView" class="app-view console-view hidden">
+        <div class="console-nav hud-panel">
+          <button id="consoleBack" class="btn secondary compact">← BACK</button>
+          <div><div class="panel-tag">OPERATOR CONSOLE</div><h2>Control deck</h2></div>
+          <button id="logout" class="btn secondary compact">↗ SIGN OUT</button>
+        </div>
+
+        <div id="accountPanel" class="card holo-card account-panel hidden">
+          <div class="panel-tag">IDENTITY PROFILE</div>
+          <h2>Account</h2>
+          <p class="muted">Login email: <strong id="accountEmail"></strong></p>
+          <label>Username<input id="accountUsername" type="text" autocomplete="username" minlength="3" maxlength="24" placeholder="e.g. gashapon_admin"></label>
+          <p class="muted profile-help">3–24 characters: lowercase letters, numbers and underscore.</p>
+          <label>Display name<input id="accountDisplayName" type="text" maxlength="40" placeholder="Name shown inside the app"></label>
+          <div class="row"><button id="saveProfile" class="btn primary">SAVE PROFILE</button><button id="changePasswordBtn" class="btn secondary">CHANGE PASSWORD</button><button id="accountLogout" class="btn secondary danger">LOG OUT</button></div>
+          <div id="accountMsg" class="status"></div>
+        </div>
+
+        <div id="playerAccountPanel" class="card holo-card player-account-panel hidden">
+          <div class="panel-tag">PLAYER ACCOUNT // MANAGEMENT</div>
+          <div class="admin-title-row">
+            <div><h2>Player Account</h2><p class="muted">Search by username or email to manage a player’s coins or account access.</p></div>
+            <span class="mini-chip">MASTER / ADMIN</span>
+          </div>
+          <section class="admin-section player-coin-admin">
+            <div class="player-search-bar">
+              <input id="playerSearchInput" type="search" maxlength="254" autocomplete="off" placeholder="Username or email">
+              <button id="playerSearchBtn" class="btn primary" type="button">SEARCH</button>
+            </div>
+            <div id="playerSearchMsg" class="status"></div>
+            <div id="playerSearchResults" class="player-search-results"></div>
+          </section>
+        </div>
+
+        <div id="admin" class="card holo-card admin">
+          <div class="panel-tag">ADMINISTRATION MATRIX</div>
+          <div class="admin-title-row"><h2>Admin</h2><button id="accountFromAdmin" class="btn secondary compact">◎ ACCOUNT</button></div>
+          <nav class="machine-tabs-shell admin-machine-tabs" aria-label="Gashapon machines"><div id="machineTabs" class="machine-tabs"></div></nav>
+
+          <section id="machineManagement" class="admin-section hidden">
+            <div class="admin-section-head"><div><h3>Master machine control</h3><p class="muted">Master can rename, change posters, disable, or remove the selected machine.</p></div><span class="mini-chip">MASTER ONLY</span></div>
+            <label>Machine title<input id="machineName" maxlength="80" placeholder="Machine title"></label>
+            <label>Coins required per play <span class="master-only-note">MASTER ONLY</span><input id="machineCoinCost" type="number" min="1" max="99" step="1" value="1" inputmode="numeric"></label>
+            <img id="machinePosterPreview" class="preview poster-preview hidden" alt="Machine poster preview">
+            <div class="row"><button id="saveMachine" class="btn primary">SAVE MACHINE</button><button id="uploadMachinePoster" class="btn secondary">UPLOAD POSTER</button><button id="removeMachinePoster" class="btn secondary danger hidden">REMOVE POSTER</button><button id="toggleMachine" class="btn secondary">DISABLE MACHINE</button><button id="deleteMachine" class="btn secondary danger">REMOVE MACHINE</button></div>
+            <div id="machineAdminMsg" class="status"></div>
+          </section>
+
+          <div class="divider-line"></div>
+          <section class="admin-section coin-admin-section">
+            <div class="admin-section-head"><div><h3>Staff / test coin balance</h3><p class="muted">Shared testing balance used by Master, Admin and Staff when playing.</p></div></div>
+            <div class="row"><button class="btn secondary coinBtn" data-d="1">+1 COIN</button><button class="btn secondary coinBtn" data-d="5">+5 COINS</button><button class="btn secondary coinBtn" data-d="-1">−1 COIN</button></div>
+          </section>
+
+          <div class="divider-line"></div><h3>Add prize to selected machine</h3>
+          <label>Prize name<input id="name" maxlength="80" placeholder="Prize name"></label>
+          <label>Stock<input id="stock" type="number" min="0" max="10000" value="10"></label>
+          <div id="prizeImageControls" class="master-image-controls hidden"><label>Prize image <span class="master-only-note">MASTER ONLY</span><input id="imageFile" type="file" accept="image/png,image/jpeg,image/webp"></label><img id="imagePreview" class="preview hidden" alt="Prize preview"></div>
+          <button id="add" class="btn primary">ADD TO THIS GASHAPON</button>
+          <h3 class="section-gap">Prize pool</h3><div id="pool"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="login" class="overlay"><div class="modal login-modal" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+    <button id="loginClose" class="modal-close" type="button" aria-label="Close sign in">×</button>
+    <div class="login-emblem" aria-hidden="true"><span>✦</span></div>
+    <div class="panel-tag">SECURE OPERATOR ACCESS</div>
+    <h2 id="loginTitle">Sign in</h2>
+    <p class="muted">Players can create an account with email and verify it to start. Master approval is only required for Staff/Admin access. After sign-in, you can create a unique username and use either username or email next time.</p>
+    <label>Email or username<input id="identifier" type="text" autocomplete="username" maxlength="254" placeholder="Email or username"></label>
+    <label>Password<input id="password" type="password" autocomplete="current-password" minlength="12" maxlength="128" placeholder="Password"></label>
+    <div class="row"><button id="signin" class="btn primary">SIGN IN</button><button id="signup" class="btn secondary">CREATE ACCOUNT</button></div>
+    <div class="row auth-links"><button id="forgot" class="link-btn">Forgot password?</button><button id="resend" class="link-btn hidden">Resend verification email</button></div>
+    <div id="loginmsg" class="status"></div>
+  </div></div>
+
+  <div id="passwordModal" class="overlay hidden"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="passwordTitle">
+    <button id="passwordClose" class="modal-close" type="button" aria-label="Close password window">×</button>
+    <div class="panel-tag">SECURITY // CREDENTIAL UPDATE</div>
+    <h2 id="passwordTitle">Change password</h2>
+    <p id="passwordHelp" class="muted">Choose a strong password you do not use elsewhere.</p>
+    <label id="currentPasswordLabel">Current password<input id="currentPassword" type="password" autocomplete="current-password" maxlength="128"></label>
+    <label>New password<input id="newPassword" type="password" autocomplete="new-password" minlength="12" maxlength="128"></label>
+    <label>Confirm new password<input id="confirmPassword" type="password" autocomplete="new-password" minlength="12" maxlength="128"></label>
+    <div class="row"><button id="savePassword" class="btn primary">SAVE PASSWORD</button><button id="cancelPassword" class="btn secondary">CANCEL</button></div>
+    <div id="passwordMsg" class="status"></div>
+  </div></div>
+
+  <div id="result" class="overlay result-overlay hidden"><div class="modal center result-modal" role="dialog" aria-modal="true" aria-labelledby="rname">
+    <button id="resultClose" class="modal-close" type="button" aria-label="Close reward">×</button>
+    <div class="panel-tag">CAPSULE ACQUIRED</div>
+    <div class="celebrate">✦</div>
+    <div class="reward-kicker">REWARD UNLOCKED</div>
+    <div class="result-frame">
+      <img id="rimg" class="result-img hidden" alt="Prize image">
+      <div id="rnoimg" class="result-no-image"><span>◇</span><small>NO IMAGE UPLOADED</small></div>
+    </div>
+    <h2 id="rname"></h2><p id="rstock" class="muted"></p>
+    <button id="claim" class="btn primary full">CLAIM PRIZE ✓</button>
+  </div></div>
+
+
+  <div id="confirmModal" class="overlay hidden"><div class="modal confirm-modal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+    <button id="confirmClose" class="modal-close" type="button" aria-label="Close confirmation">×</button>
+    <div class="panel-tag">CONFIRM ACTION</div>
+    <h2 id="confirmTitle">Are you sure?</h2>
+    <p id="confirmText" class="muted"></p>
+    <div class="row confirm-actions">
+      <button id="confirmOk" class="btn primary">CONFIRM</button>
+      <button id="confirmCancel" class="btn secondary">CANCEL</button>
+    </div>
+  </div></div>
+
+  <div id="createMachineModal" class="overlay hidden"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="createMachineTitle">
+    <button id="createMachineClose" class="modal-close" type="button" aria-label="Close create gashapon">×</button>
+    <div class="panel-tag">MASTER // NEW GASHAPON</div>
+    <h2 id="createMachineTitle">Create Gashapon</h2>
+    <p class="muted">Create the machine first. You can upload its poster from Master machine control after it is created.</p>
+    <label>Machine title<input id="createMachineName" maxlength="80" placeholder="e.g. Snack Capsule"></label>
+    <label>Coins required per play<input id="createMachineCost" type="number" min="1" max="99" step="1" value="1" inputmode="numeric"></label>
+    <div class="row">
+      <button id="createMachineSubmit" class="btn primary">＋ CREATE GASHAPON</button>
+      <button id="createMachineCancel" class="btn secondary">CANCEL</button>
+    </div>
+    <div id="createMachineMsg" class="status"></div>
+  </div></div>
+
+  <script type="module" src="/app.js"></script>
